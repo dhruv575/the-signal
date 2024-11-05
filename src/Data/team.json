@@ -1,0 +1,82 @@
+[
+    {
+        "Name": "Henry Putney",
+        "Year": "2025",
+        "Major": "Cognitive Science",
+        "Position": "Co-director",
+        "Instagram": "https://instagram.com/henryeputney",
+        "Image": "https://i.ibb.co/rxzRJP9/IMG-5291-Henry-Putney.jpg",
+        "Projects": "Confessions on Locust, Where We Stand, Existential Bread"
+    },
+    {
+        "Name": "Joey Huang",
+        "Year": "2025",
+        "Major": "Systems Engineering",
+        "Position": "Project Lead",
+        "Instagram": "https://instagram.com/joeyishuang",
+        "Image": "https://i.ibb.co/dfLwWVV/IMG-3117-Joseph-Huang.jpg",
+        "Projects": "Confessions on Locust, Hot Ones"
+    },
+    {
+        "Name": "Andrew Lu",
+        "Year": "2027",
+        "Major": "PPE",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/thelululuser",
+        "Image": "https://i.ibb.co/rcLXScz/children-at-risk-photo-Andrew-Lu.jpg",
+        "Projects": "Art-Fair"
+    },
+    {
+        "Name": "Chris Shen",
+        "Year": "2026",
+        "Major": "Finance",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/chris.sh3n",
+        "Image": "https://i.ibb.co/sCBt1Ys/1716854864-675613-Chris-Shen.jpg",
+        "Projects": "Confessions on Locust"
+    },
+    {
+        "Name": "Angela Wu",
+        "Year": "2027",
+        "Major": "PPE",
+        "Position": "Project Lead",
+        "Instagram": "https://instagram.com/_angela.wu",
+        "Image": "https://i.ibb.co/NybM2Th/IMG-6667-Angela-Wu.jpg",
+        "Projects": "Penn Through My Eyes"
+    },
+    {
+        "Name": "Kateryna Suprun",
+        "Year": "2025",
+        "Major": "Computer Science",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/kat.suprun",
+        "Image": "https://i.ibb.co/Qv9VwbL/IMG-7136-Kateryna-Suprun.jpg",
+        "Projects": "Confessions on Locust"
+    },
+    {
+        "Name": "Enne Kim",
+        "Year": "2026",
+        "Major": "English",
+        "Position": "Project Lead",
+        "Instagram": "https://instagram.com/enne.k",
+        "Image": "https://i.ibb.co/DVrvtcQ/BB2-CE060-F0-F3-4-DEE-B3-F6-D1-F528187-EF8-Enne-Kim.jpg",
+        "Projects": "Humans of Penn"
+    },
+    {
+        "Name": "Emily Xi",
+        "Year": "2026",
+        "Major": "Computer Science",
+        "Position": "Project Lead",
+        "Image": "https://i.ibb.co/2S08hmk/SIX-3-D6-C6-CD7-BD01-4838-91-A1-DE854-B3-FF125-min-Emily-Xi.png",
+        "Projects": "Humans of Penn, Penn Through My Eyes"
+    },
+    {
+        "Name": "Annabel Sumardi",
+        "Year": "2025",
+        "Major": "Economics",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/annabelsumardi",
+        "Image": "https://i.ibb.co/vhLH2wM/IMG-0595-Annabel-Sumardi.jpg",
+        "Projects": "Confessions on Locust, Art-Fair"
+    }
+]
