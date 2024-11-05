@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/the-signal/static/css/main.e6c13ad2.css",
+    "main.js": "/the-signal/static/js/main.798861fe.js",
+    "static/js/453.e2a347bd.chunk.js": "/the-signal/static/js/453.e2a347bd.chunk.js",
+    "static/media/logo512.png": "/the-signal/static/media/logo512.3573fcedcc1542a2ee00.png",
+    "static/media/love2.svg": "/the-signal/static/media/love2.6cd3fc2db07e98f1ff53a2a7d7d78ac9.svg",
+    "static/media/conf2.jpg": "/the-signal/static/media/conf2.a2dfed2996c5dd62a705.jpg",
+    "static/media/squirrelscards.svg": "/the-signal/static/media/squirrelscards.b7fb108c508f1633e56e99988f4acc0e.svg",
+    "static/media/LOVE.jpg": "/the-signal/static/media/LOVE.d9d08df861cbdfab8a1e.jpg",
+    "static/media/conf1.jpg": "/the-signal/static/media/conf1.8958f70e1c084d3f5e85.jpg",
+    "static/media/stickynote.svg": "/the-signal/static/media/stickynote.1aa9d6f64efe3fe1a4aa8742417cf8e5.svg",
+    "index.html": "/the-signal/index.html",
+    "main.e6c13ad2.css.map": "/the-signal/static/css/main.e6c13ad2.css.map",
+    "main.798861fe.js.map": "/the-signal/static/js/main.798861fe.js.map",
+    "453.e2a347bd.chunk.js.map": "/the-signal/static/js/453.e2a347bd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.798861fe.js"
+  ]
+}
