@@ -83,7 +83,9 @@ const HomeMiddle = () => {
           We provide resources to help students discover their passions and live
           deliberately at Penn, in their careers, and beyond.
         </Text>
-        <Button>Learn More</Button>
+        <Button onClick={() => window.location.href = '/projects'}>
+          Learn More
+        </Button>
       </Content>
       <SquirrelsCardImage src={squirrelscards} alt="Squirrels Cards" />
     </HomeMiddleContainer>

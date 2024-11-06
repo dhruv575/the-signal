@@ -75,7 +75,7 @@ const CompanyRow = styled.div`
 `;
 
 const CompanyName = styled.span`
-  color: ${({ isHighlighted }) => (isHighlighted ? '#ff3333' : 'black')};
+  color: ${({ isHighlighted }) => (isHighlighted ? 'blue' : 'black')};
   transition: color 0.5s ease;
   font-size: clamp(0.5rem, 1.5vw, 1.5rem);
   white-space: nowrap;

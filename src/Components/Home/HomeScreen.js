@@ -66,7 +66,7 @@ const fadeIn = keyframes`
 `;
 
 const SpecialText = styled.div`
-  color: lightgreen;
+  color: blue;
   height: 11vh;
   font-size: 10vh;
   font-weight: bold;

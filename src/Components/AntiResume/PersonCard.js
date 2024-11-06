@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Modal from './Modal'; // Import the Modal component
 
 const CardWrapper = styled.div`
-  background-color: #ff3333;
+  background-color: blue;
   color: white;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 1rem;

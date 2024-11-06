@@ -16,7 +16,7 @@ const AboutTitle = styled.h2`
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 700;
-  color: #ff3333;
+  color: blue;
 `;
 
 const AboutText = styled.p`
