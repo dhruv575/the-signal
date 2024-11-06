@@ -19,24 +19,12 @@ const ConfessionsContainer = styled.div`
   width: 100%;
 `;
 
-const SectionOne = styled.div`
-  background-color: red;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-`;
-
-const SectionOneText = styled.h1`
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: white;
-`;
-
 const SectionTwo = styled.div`
   height: 70vh;
   color: black;
   display: flex;
   flex-direction: column;
+  padding: 3rem;
   align-items: center;
   justify-content: flex-start;
 `;
@@ -84,10 +72,11 @@ const Image = styled.img`
 `;
 
 const PostItNote = styled.button`
-  width: 2rem;
-  height: 2rem;
+  width: 2.6rem;
+  height: 2.6rem;
   background-color: ${({ color }) => color};
   position: absolute;
+  font-family: sans-serif;
   top: ${({ top }) => top}%;
   left: ${({ left }) => left}%;
   border-radius: 5%;
@@ -101,28 +90,46 @@ const PostItNote = styled.button`
   }
 
   @media (max-width: 768px) {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.8rem;
+    height: 1.8rem;
   }
   @media (max-width: 500px) {
-    width: 1rem;
-    height: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 `;
+
+const fonts = [
+  "'Permanent Marker', cursive",
+  "'Reenie Beanie', cursive",
+  "'Shadows Into Light', cursive",
+  "'Gloria Hallelujah', cursive",
+  "'Patrick Hand', cursive"
+];
+
+const getRandomFont = () => fonts[Math.floor(Math.random() * fonts.length)];
 
 const Modal = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
+  height: 200px;
+  width: 200px;
   transform: translate(-50%, -50%);
   background-color: ${({ color }) => color};
-  color: white;
+  color: black;
+  font-size: 1.5rem;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   z-index: 10;
   max-width: 80%;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: ${({ font }) => font};
 `;
 
 const ModalButton = styled.button`
@@ -229,10 +236,6 @@ const Confessions = () => {
         ))}
       </SectionThree>
 
-      <SectionOne>
-        <SectionOneText>Confessions on Locust</SectionOneText>
-      </SectionOne>
-
       <SectionTwo>
         <SectionTwoTitle>About</SectionTwoTitle>
         <SectionTwoText>
@@ -258,7 +261,7 @@ const Confessions = () => {
       {modalContent && (
         <>
           <Overlay onClick={() => setModalContent(null)} />
-          <Modal color={modalContent.color}>
+          <Modal color={modalContent.color} font={getRandomFont()}>
             <p>{modalContent.text}</p>
             <ModalButton onClick={() => setModalContent(null)}>
               Close
