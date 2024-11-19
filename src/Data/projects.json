@@ -4,7 +4,28 @@
         "title": "Anti-Resume",
         "subtitle": "Failure at Penn",
         "link": "/antiresume",
-        "description": "The goal of this project is to highlight both failures and accomplishments of people at Penn that wouldn’t normally show up on a resume, and to promote the message that we are more than our resume, our GPA, our internship, or our job. The Signal is currently sharing anti-resumes of Penn alumni and students in an effort to promote discussion and reflection on what failure really means."
+        "description": "The Anti-Resume project's goal is to highlight both failures/accomplishments of Penn alumni that wouldn’t normally show up on a resume, and to promote the message that we are more than our resume/GPA/internship/job. We want to encourage people to learn from their failures and to celebrate the things about themselves that aren’t linked to traditional measures of success."
+    },
+    {
+        "background_image": "https://i.ibb.co/7QWPyds/locust-confessions.png",
+        "title": "Confessions on Locust",
+        "subtitle": "Confesisng on Locust",
+        "link": "/confessions",
+        "description": "Confessions on Locust is a series of exhibits and videos that encourage the Penn community to slow down and reflect on the Penn experience. Look out for our chalk circles or LOVE Statue exhibits!"
+    },
+    {
+        "background_image": "https://a.storyblok.com/f/64062/3500x2333/5d62f86b90/upenn-1.jpg/m/",
+        "title": "Dear Penn Freshmen",
+        "subtitle": "Letters of Advice",
+        "link": "https://dearpennfreshmen.org/",
+        "description": "\"Dear Penn Freshmen\" is a collection of letters written by Penn upperclassmen addressing their freshman year selves about things they wish they knew in their first year. These notes are filled with advice, anecdotes, and random thoughts in hopes that our experiences will make readers' first year at Penn just a tad bit easier. "
+    },
+    {
+        "background_image": "https://i.ibb.co/F8XJ4gN/IMG-4968-Angela-Wu.jpg",
+        "title": "Penn Through my Eyes",
+        "subtitle": "Candid Expressions",
+        "link": "/confessions",
+        "description": "If we give you this camera, can you take some photos and pass it on to another Penn student? Our goal is to engage the Penn community in a shared activity: taking snapshots of our lives and passing the camera onwards!"
     },
     {
         "background_image": "https://i.ibb.co/4S7zrfL/hotones-1.png",
@@ -26,12 +47,5 @@
         "subtitle": "Penn student outcomes 😲😲",
         "link": "/deconstructing-penn-pathways",
         "description": "During the spring of 2018, we used student career and internship data provided by Penn Career Services to create a visualization of the different paths that the Class of 2017 pursued over their four years at Penn. In the visualization, bands of varying width represent the number of students that entered a certain field each year. The purpose was to find out what students of each school did at their jobs and summer internships and whether or not preconceptions about the 'most popular industries' were true. The resulting product showed a surprising amount of diversity in the paths chosen by students, with the largest bands in each school being Other, indicating that there are many more students that pursue less mainstream paths than expected. We shared these results with the Penn community in the hopes of providing students with more insight and background while they consider future professional opportunities."
-    },
-    {
-        "background_image": "https://i.ibb.co/7QWPyds/locust-confessions.png",
-        "title": "Confessions on Locust",
-        "subtitle": "Confesisng on Locust",
-        "link": "/confessions",
-        "description": "Confessing on Locust I guess?"
     }
 ]

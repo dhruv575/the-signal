@@ -222,7 +222,7 @@ const Confessions = () => {
         <Image 
           src={loveImage} 
           alt="Love illustration" 
-          loading="eager"
+          loading="lazy"
         />
         {shuffledConfessions.map((confession, index) => (
           <PostItNote
@@ -241,8 +241,11 @@ const Confessions = () => {
         <SectionTwoText>
           Confessions on Locust is a series of exhibits and videos that encourage 
           the Penn community to slow down and reflect on the Penn experience. 
-          Look out for our chalk circles or LOVE Statue exhibits! Hint: Click on the post its above 
-          for a sneak peek at some confessions!
+          Look out for our chalk circles or LOVE Statue exhibits! 
+        </SectionTwoText>
+        <SectionTwoText>
+        Hint: Click on the post its above 
+        for a sneak peek at some confessions!
         </SectionTwoText>
         <SectionTwoImageContainer>
           <SectionTwoImage 

@@ -78,5 +78,85 @@
         "Instagram": "https://instagram.com/annabelsumardi",
         "Image": "https://i.ibb.co/vhLH2wM/IMG-0595-Annabel-Sumardi.jpg",
         "Projects": "Confessions on Locust, Art-Fair"
+    },
+    {
+        "Name": "Tanay Tandon",
+        "Year": "2027",
+        "Major": "Computer Science",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/tanaytandon",
+        "Image": "https://i.ibb.co/V9yXmTc/IMG-1949-Tanay-Tandon.jpg",
+        "Projects": "Penn Through My Eyes"
+    },
+    {
+        "Name": "Catherine Chow",
+        "Year": "2026",
+        "Major": "Computer Science",
+        "Position": "Co-director",
+        "Instagram": "https://instagram.com/ca.th.chow",
+        "Image": "https://i.ibb.co/M9b2CMN/EE867-B30-D27-D-4319-A967-48-CDFEB3-C6-B9-Catherine-Chow.jpg",
+        "Projects": "Confessions on Locust, Dear Penn Freshmen, Humans of Penn"
+    },
+    {
+        "Name": "Alison Yau",
+        "Year": "2026",
+        "Major": "Finance",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/alsnphabet",
+        "Image": "https://i.ibb.co/sP9D5TT/IMG-0777-Alison-Yau.jpg",
+        "Projects": "Humans of Penn"
+    },
+    {
+        "Name": "Hana Le",
+        "Year": "2026",
+        "Major": "Business Ethics",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/hana.vle",
+        "Image": "https://i.ibb.co/3TWQRhj/IMG-6908-Hana-Le.jpg",
+        "Projects": "Anti-Resume Project"
+    },
+    {
+        "Name": "Austin Zhuang",
+        "Year": "2026",
+        "Major": "Bioengineering",
+        "Position": "Board",
+        "Image": "https://i.ibb.co/Zh5Lmw4/IMG-0829-Austin-Zhuang.png",
+        "Projects": "Anti-Resume Project, Where We Stand, Hot Ones"
+    },
+    {
+        "Name": "Samita Gupta",
+        "Year": "2025",
+        "Major": "Design and Consumer Psychology",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/samitagupta_",
+        "Image": "https://i.ibb.co/QKqNTrS/signalheadshot-Samita-Gupta.jpg",
+        "Projects": "Confessions on Locust, Penn Through My Eyes"
+    },
+    {
+        "Name": "Amanda Cui",
+        "Year": "2025",
+        "Major": "Finance",
+        "Position": "Co-director",
+        "Instagram": "https://instagram.com/Amandacuii",
+        "Image": "https://i.ibb.co/vcFxVQs/R0003909-Amanda-Cui.jpg",
+        "Projects": "Humans of Penn, Dear Penn Freshmen, Anti-Resume Project"
+    },
+    {
+        "Name": "Erina Chowdhury",
+        "Year": "2027",
+        "Major": "Political Science",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/e.erinaaa",
+        "Image": "https://i.ibb.co/dkBXK2N/IMG-5267-Erina-Chowdhury.jpg",
+        "Projects": "Humans of Penn"
+    },
+    {
+        "Name": "Karina Gupta",
+        "Year": "2027",
+        "Major": "Bioengineering",
+        "Position": "Member",
+        "Instagram": "https://instagram.com/karinamgupta",
+        "Image": "https://i.ibb.co/thTnZwt/DSC01489-Karina-Gupta.jpg",
+        "Projects": "Penn Through My Eyes"
     }
 ]
