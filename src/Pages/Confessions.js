@@ -5,6 +5,11 @@ import conf1 from '../Images/conf1.jpg';
 import conf2 from '../Images/conf2.jpg';
 import confessionsData from '../Data/confessions.json';
 
+// Define color constants to match Navbar
+const NAVY = '#0A2463';
+const NAVY_LIGHT = '#1A3473';
+const GRAY_LIGHT = '#f5f5f7';
+
 // Pre-compute pastel colors for better performance
 const generatePastelColors = (count) => {
   const colors = [];
@@ -20,41 +25,110 @@ const ConfessionsContainer = styled.div`
 `;
 
 const SectionTwo = styled.div`
-  height: 70vh;
-  color: black;
+  min-height: 70vh;
+  color: ${NAVY};
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding: 5rem 3rem;
   align-items: center;
   justify-content: flex-start;
+  background-color: ${GRAY_LIGHT};
+  
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
 `;
 
 const SectionTwoTitle = styled.h2`
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  font-weight: 700;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: ${NAVY};
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const SectionTwoText = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  line-height: 1.8;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const HintText = styled(SectionTwoText)`
+  font-style: italic;
+  color: ${NAVY_LIGHT};
+  background-color: rgba(10, 36, 99, 0.05);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  margin: 1rem 0 2.5rem;
+  display: flex;
+  align-items: center;
+  
+  &:before, &:after {
+    content: '✨';
+    margin: 0 0.5rem;
+  }
 `;
 
 const SectionTwoImageContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
+  max-width: 1200px;
   justify-content: center;
+  margin-top: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
 `;
 
 const SectionTwoImage = styled.img`
-  height: 45vh;
+  height: auto;
+  max-height: 50vh;
   object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  }
+  
   &:first-child {
     width: 60%;
   }
   &:last-child {
     width: 35%;
+  }
+  
+  @media (max-width: 768px) {
+    &:first-child, &:last-child {
+      width: 100%;
+      max-width: 500px;
+    }
   }
 `;
 
@@ -113,37 +187,64 @@ const Modal = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  height: 200px;
-  width: 200px;
+  min-height: 250px;
+  width: 300px;
   transform: translate(-50%, -50%);
   background-color: ${({ color }) => color};
-  color: black;
+  color: rgba(0, 0, 0, 0.8);
   font-size: 1.5rem;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   z-index: 10;
-  max-width: 80%;
+  max-width: 90%;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-family: ${({ font }) => font};
+  transition: transform 0.3s ease;
+  animation: modalAppear 0.3s ease-out;
+  
+  @keyframes modalAppear {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -40%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    padding: 2rem;
+    width: 280px;
+  }
 `;
 
 const ModalButton = styled.button`
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
   border: none;
-  border-radius: 4px;
-  color: white;
+  border-radius: 30px;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  font-size: 1rem;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
   }
 `;
 
@@ -153,8 +254,18 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 5;
+  animation: fadeIn 0.3s ease-out;
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const positions = [
@@ -237,16 +348,15 @@ const Confessions = () => {
       </SectionThree>
 
       <SectionTwo>
-        <SectionTwoTitle>About</SectionTwoTitle>
+        <SectionTwoTitle>About Confessions</SectionTwoTitle>
         <SectionTwoText>
           Confessions on Locust is a series of exhibits and videos that encourage 
           the Penn community to slow down and reflect on the Penn experience. 
-          Look out for our chalk circles or LOVE Statue exhibits! 
+          Look out for our chalk circles or LOVE Statue exhibits!
         </SectionTwoText>
-        <SectionTwoText>
-        Hint: Click on the post its above 
-        for a sneak peek at some confessions!
-        </SectionTwoText>
+        <HintText>
+          Click on the post-its above for a sneak peek at some confessions!
+        </HintText>
         <SectionTwoImageContainer>
           <SectionTwoImage 
             src={conf1} 

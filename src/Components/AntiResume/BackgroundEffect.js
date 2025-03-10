@@ -85,7 +85,7 @@ const CompanyName = styled.span`
 
   /* Adjust font size on smaller screens */
   @media (max-width: 600px) {
-    font-size: clamp(1.5rem, 1vw, 1rem); /* Smaller font size */
+    font-size: clamp(0.5rem, 1vw, 1rem); /* Smaller font size */
   }
 `;
 

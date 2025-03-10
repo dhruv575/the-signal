@@ -47,6 +47,10 @@ const Heading = styled.h2`
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Text = styled.p`

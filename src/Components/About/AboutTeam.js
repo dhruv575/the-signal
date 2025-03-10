@@ -5,104 +5,166 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-const TeamContainer = styled.div`
-  padding: 0rem;
+// Define color constants to match Navbar
+const NAVY = '#0A2463';
+const GRAY_LIGHT = '#f5f5f7';
+
+const TeamContainer = styled.section`
+  padding: 5rem 2rem;
+  background-color: ${GRAY_LIGHT};
 `;
 
-const Title = styled.p`
+const SectionTitle = styled.h2`
   text-align: center;
-  font-size: 4rem;
-  margin-left: 1rem;
-  margin-bottom: 2rem;
-  margin-top: 0rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: ${NAVY};
+  margin-bottom: 4rem;
+  font-weight: 700;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: ${NAVY};
+  }
 `;
 
-const Row = styled.div`
+const TeamSection = styled.div`
+  margin-bottom: 5rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const SectionHeader = styled.div`
+  background-color: ${props => props.index % 2 === 0 ? NAVY : 'white'};
+  color: ${props => props.index % 2 === 0 ? 'white' : NAVY};
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+`;
+
+const PositionTitle = styled.h3`
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  margin: 0;
+`;
+
+const MembersGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+`;
+
+const MemberCard = styled.div`
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: ${(props) => (props.index % 2 === 0 ? 'navy' : 'white')};
-  color: ${(props) => (props.index % 2 === 0 ? 'white' : 'black')};
-  padding: 1rem;
-`;
-
-const RowTitle = styled.p`
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: ${(props) => (props.index % 2 === 0 ? 'white' : 'black')};
-  padding-left: 1rem;
-`;
-
-const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const Card = styled.div`
-  display: flex;
-  width: 100%;
-  max-width: 400px;
-  margin: 1rem;
-  overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  background-color: ${(props) => (props.rowIndex % 2 === 0 ? 'white' : 'navy')};
-  color: ${(props) => (props.rowIndex % 2 === 0 ? 'black' : 'white')};
-
+  
   &:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   }
 `;
 
 const ImageContainer = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 0;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  position: relative;
   overflow: hidden;
-  background-color: #f0f0f0;
 `;
 
-const Image = styled.img`
+const MemberImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+  
+  ${MemberCard}:hover & {
+    transform: scale(1.05);
+  }
 `;
 
-const Content = styled.div`
-  flex: 2;
-  padding: 1rem;
-`;
-
-const Name = styled.h3`
-  margin: 0;
-  font-weight: bold;
-`;
-
-const Tags = styled.div`
+const MemberInfo = styled.div`
+  padding: 1.5rem;
+  flex-grow: 1;
   display: flex;
+  flex-direction: column;
+`;
+
+const MemberName = styled.h4`
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.8rem 0;
+  color: ${NAVY};
+`;
+
+const TagsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 0.5rem 0;
+  margin-bottom: 1rem;
 `;
 
 const Tag = styled.span`
-  background-color: #b0b0b0;
-  border-radius: 5px;
-  padding: 0.2rem 0.5rem;
-  font-size: 0.9rem;
+  background-color: ${GRAY_LIGHT};
+  color: ${NAVY};
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
 `;
 
-const Projects = styled.p`
-  margin: 0.5rem 0;
+const ProjectsList = styled.p`
+  margin: 0.5rem 0 1rem;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1;
 `;
 
-const Icons = styled.div`
+const SocialLinks = styled.div`
   display: flex;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  gap: 1rem;
+  margin-top: auto;
 `;
 
-const IconLink = styled.a`
-  color: inherit;
-  font-size: 1.5rem;
+const SocialLink = styled.a`
+  color: ${NAVY};
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  
+  &:hover {
+    background-color: rgba(10, 36, 99, 0.1);
+    transform: translateY(-2px);
+  }
 `;
 
 const positions = ["Co-director", "Board", "Project Lead", "Member", "Alumni"];
@@ -115,45 +177,57 @@ const AboutTeam = () => {
 
   return (
     <TeamContainer>
-      <Title>Team</Title>
+      <SectionTitle>Our Team</SectionTitle>
+      
       {groupedData.map((group, groupIndex) => (
-        <Row key={group.position} index={groupIndex}>
-          <RowTitle index={groupIndex}>{group.position}</RowTitle>
-          <CardContainer>
-            {group.members.map((member, index) => (
-              <Card key={index} rowIndex={groupIndex}>
-                <ImageContainer>
-                  <Image src={member.Image} alt={member.Name} />
-                </ImageContainer>
-                <Content>
-                  <Name>{member.Name}</Name>
-                  <Tags>
-                    <Tag>{member.Year}</Tag>
-                    <Tag>{member.Major}</Tag>
-                  </Tags>
-                  <Projects>{member.Projects}</Projects>
-                  <Icons>
-                    {member.Instagram && (
-                      <IconLink href={member.Instagram} target="_blank">
-                        <FontAwesomeIcon icon={faInstagram} />
-                      </IconLink>
+        group.members.length > 0 && (
+          <TeamSection key={group.position}>
+            <SectionHeader index={groupIndex}>
+              <PositionTitle>{group.position}</PositionTitle>
+            </SectionHeader>
+            
+            <MembersGrid>
+              {group.members.map((member, index) => (
+                <MemberCard key={index}>
+                  <ImageContainer>
+                    <MemberImage src={member.Image} alt={member.Name} loading="lazy" />
+                  </ImageContainer>
+                  
+                  <MemberInfo>
+                    <MemberName>{member.Name}</MemberName>
+                    
+                    <TagsContainer>
+                      {member.Year && <Tag>{member.Year}</Tag>}
+                      {member.Major && <Tag>{member.Major}</Tag>}
+                    </TagsContainer>
+                    
+                    {member.Projects && (
+                      <ProjectsList>{member.Projects}</ProjectsList>
                     )}
-                    {member.Email && (
-                      <IconLink href={`mailto:${member.Email}`}>
-                        <FontAwesomeIcon icon={faEnvelope} />
-                      </IconLink>
-                    )}
-                    {member.Linkedin && (
-                      <IconLink href={member.Linkedin} target="_blank">
-                        <FontAwesomeIcon icon={faLinkedin} />
-                      </IconLink>
-                    )}
-                  </Icons>
-                </Content>
-              </Card>
-            ))}
-          </CardContainer>
-        </Row>
+                    
+                    <SocialLinks>
+                      {member.Instagram && (
+                        <SocialLink href={member.Instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                          <FontAwesomeIcon icon={faInstagram} />
+                        </SocialLink>
+                      )}
+                      {member.Email && (
+                        <SocialLink href={`mailto:${member.Email}`} aria-label="Email">
+                          <FontAwesomeIcon icon={faEnvelope} />
+                        </SocialLink>
+                      )}
+                      {member.Linkedin && (
+                        <SocialLink href={member.Linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                          <FontAwesomeIcon icon={faLinkedin} />
+                        </SocialLink>
+                      )}
+                    </SocialLinks>
+                  </MemberInfo>
+                </MemberCard>
+              ))}
+            </MembersGrid>
+          </TeamSection>
+        )
       ))}
     </TeamContainer>
   );
