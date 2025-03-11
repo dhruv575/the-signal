@@ -167,7 +167,7 @@ const SocialLink = styled.a`
   }
 `;
 
-const positions = ["Co-director", "Board", "Project Lead", "Member", "Alumni"];
+const positions = ["Co-director", "Project Lead", "Member", "Alumni"];
 
 const AboutTeam = () => {
   const groupedData = positions.map((position) => ({

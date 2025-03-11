@@ -1,0 +1,10 @@
+[
+    {
+        "title": "Test Blog",
+        "slug": "test-blog",
+        "date": "2025-03-11",
+        "author": "John Doe",
+        "mainImage": "https://i.ibb.co/7QWPyds/locust-confessions.png",
+        "content": "example.md"
+    } 
+]

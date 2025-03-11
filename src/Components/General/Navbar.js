@@ -351,10 +351,17 @@ const Navbar = () => {
               >
                 <StyledLink to="/antiresume">Anti Resume</StyledLink>
                 <StyledLink to="/confessions">Confessions</StyledLink>
+                <StyledLink to="https://swithoutm.com/" rel="noopener noreferrer" target="_blank">Squirrels without Morality</StyledLink>
+                <StyledLink to="https://www.pennbti.com/" rel="noopener noreferrer" target="_blank">PennBTI</StyledLink>
               </DropdownContent>
             </>
           )}
         </Dropdown>
+        
+        <NavButton>
+          <StyledLink to="/articles">Articles</StyledLink>
+        </NavButton>
+        
         <NavButton>
           <NavbarLink href="/about">About</NavbarLink>
         </NavButton>

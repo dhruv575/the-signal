@@ -28,9 +28,23 @@
         "description": "If we give you this camera, can you take some photos and pass it on to another Penn student? Our goal is to engage the Penn community in a shared activity: taking snapshots of our lives and passing the camera onwards!"
     },
     {
+        "background_image": "https://i.ibb.co/1C0rb6g/swm.jpg",
+        "title": "Squirrels without Morality",
+        "subtitle": "Penn!! Games!!",
+        "link": "https://swithoutm.com/",
+        "description": "Squirrels without Morality is a fun little Cards against Humanity clone through which Penn students can mess around a little and stay on top of Penn-centric slang. Online version is out and in person decks coming soon!"
+    },
+    {
+        "background_image": "https://i.ibb.co/nxxzLFM/pennbti.png",
+        "title": "PennBTI",
+        "subtitle": "Test & Match",
+        "link": "https://www.pennbti.com/",
+        "description": "A reworked version of the Myers-Briggs Type Indicator, PennBTI is a tool that allows Penn students to get their personality type and match with other students who are similar. Students can create and join any room, each of which is another chance to meet someone new!"
+    },
+    {
         "background_image": "https://i.ibb.co/4S7zrfL/hotones-1.png",
         "title": "Hot Ones",
-        "subtitle": "Trying hot wings and throwing up",
+        "subtitle": "Trying hot wings and telling stories",
         "link": "https://www.youtube.com/watch?v=cTiS04fbnLE",
         "description": "Based on the format of the popular YouTube Series with the same name, Hot Ones is a Penn-Centric video project where upperclassmen share their unique experiences and fascinating stories. Faced with 10 spicy hot sauces from the original show, and 10 even spicier questions, we aim to take a look at their pure, unfiltered insights into life at Penn, Pre-Professionalism, and wisdom on how to balance the components of school."
     },
