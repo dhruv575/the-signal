@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from './logo512.png';
 import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
@@ -55,18 +55,21 @@ const NavbarRight = styled.div`
 
   @media (max-width: 768px) {
     position: fixed;
-    top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+    top: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 100vh;
     flex-direction: column;
     background-color: ${GRAY_LIGHT};
-    padding: 2rem 0;
+    padding: 5rem 1.5rem 2rem;
     gap: 1.5rem;
-    transition: top 0.3s ease;
+    transition: transform 0.3s ease-in-out;
     box-shadow: 0 6px 25px rgba(10, 36, 99, 0.25);
     z-index: 4;
-    border-bottom: 2px solid ${NAVY};
+    transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(-100%)')};
+    overflow-y: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 `;
 
@@ -91,8 +94,15 @@ const NavButton = styled.div`
 
   @media (max-width: 768px) {
     padding: 0.8rem 1.5rem;
-    width: 80%;
-    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(10, 36, 99, 0.1);
+    border-radius: 0;
+    
+    &:hover {
+      background-color: rgba(10, 36, 99, 0.05);
+      transform: none;
+    }
   }
 `;
 
@@ -110,7 +120,9 @@ const StyledLink = styled(Link)`
   }
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 18px;
+    width: 100%;
+    display: block;
   }
 `;
 
@@ -127,7 +139,9 @@ const NavbarLink = styled.a`
   }
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 18px;
+    width: 100%;
+    display: block;
   }
 `;
 
@@ -141,6 +155,7 @@ const Dropdown = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0.6rem 1.2rem;
   }
 `;
 
@@ -190,30 +205,30 @@ const DropdownContent = styled.div`
   @media (max-width: 768px) {
     position: static;
     box-shadow: none;
-    width: 80%;
-    margin: 0.5rem 0;
-    background-color: transparent;
+    width: 100%;
+    margin: 0;
+    background-color: rgba(10, 36, 99, 0.03);
     display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
     opacity: 1;
     transform: none;
     border-left: none;
-    border-top: 1px solid rgba(10, 36, 99, 0.1);
-    border-bottom: 1px solid rgba(10, 36, 99, 0.1);
+    border-radius: 8px;
+    margin-bottom: 1rem;
 
     a {
-      text-align: center;
-      padding: 10px;
-      border-left: none;
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 16px;
       border-bottom: 1px solid rgba(10, 36, 99, 0.05);
-
+      
       &:last-child {
         border-bottom: none;
       }
 
       &:hover {
-        background-color: rgba(10, 36, 99, 0.05);
-        border-left: none;
-        padding-left: 10px;
+        background-color: rgba(10, 36, 99, 0.08);
+        border-left: 3px solid ${NAVY};
+        padding-left: 19px;
       }
     }
   }
@@ -238,6 +253,22 @@ const MobileMenuButton = styled.div`
   @media (max-width: 768px) {
     display: block;
     font-size: 1.5rem;
+    position: relative;
+  }
+`;
+
+const MobileCloseArea = styled.div`
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
   }
 `;
 
@@ -252,8 +283,8 @@ const ProjectsButton = styled.div`
   letter-spacing: 0.3px;
   
   @media (max-width: 768px) {
+    font-size: 18px;
     width: 100%;
-    justify-content: center;
   }
 `;
 
@@ -263,14 +294,46 @@ const Navbar = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
   const dropdownButtonRef = useRef(null);
+  const location = useLocation();
+  const [hasClickedProjects, setHasClickedProjects] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    // When opening menu, prevent body scrolling
+    if (!isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    if (window.innerWidth <= 768) {
+      if (isDropdownOpen && hasClickedProjects) {
+        // If dropdown is open and this is the second click, navigate to /projects
+        // We'll handle this in the onClick of the Projects button
+        setHasClickedProjects(false);
+      } else {
+        // First click or closing from elsewhere
+        setIsDropdownOpen(!isDropdownOpen);
+        setHasClickedProjects(true);
+      }
+    } else {
+      setIsDropdownOpen(!isDropdownOpen);
+    }
   };
+
+  // Reset the click state when route changes
+  useEffect(() => {
+    closeMenu();
+    setIsDropdownOpen(false);
+    setHasClickedProjects(false);
+  }, [location.pathname]);
 
   // Handle desktop dropdown visibility
   const handleMouseEnter = () => {
@@ -303,6 +366,13 @@ const Navbar = () => {
     };
   }, []);
 
+  // Clean up body overflow style when component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   return (
     <NavbarContainer>
       <NavbarLeft>
@@ -315,20 +385,28 @@ const Navbar = () => {
         {isMenuOpen ? <FaTimes /> : <FaBars />}
       </MobileMenuButton>
 
+      <MobileCloseArea isOpen={isMenuOpen} onClick={closeMenu} />
+
       <NavbarRight isOpen={isMenuOpen}>
         {/* Dropdown Menu for Projects */}
         <Dropdown className={isDropdownVisible ? 'active' : ''}>
           {window.innerWidth <= 768 ? (
             <>
-              <NavButton onClick={toggleDropdown}>
-                <ProjectsButton>
-                  Projects
-                  <ChevronIcon size={12} />
-                </ProjectsButton>
+              <NavButton>
+                {hasClickedProjects && isDropdownOpen ? (
+                  <StyledLink to="/projects" onClick={closeMenu}>Projects</StyledLink>
+                ) : (
+                  <ProjectsButton onClick={toggleDropdown}>
+                    Projects
+                    <ChevronIcon size={12} />
+                  </ProjectsButton>
+                )}
               </NavButton>
               <DropdownContent isOpen={isDropdownOpen}>
-                <StyledLink to="/antiresume">Anti Resume</StyledLink>
-                <StyledLink to="/confessions">Confessions</StyledLink>
+                <StyledLink to="/antiresume" onClick={closeMenu}>Anti Resume</StyledLink>
+                <StyledLink to="/confessions" onClick={closeMenu}>Confessions</StyledLink>
+                <StyledLink to="https://swithoutm.com/" rel="noopener noreferrer" target="_blank" onClick={closeMenu}>Squirrels without Morality</StyledLink>
+                <StyledLink to="https://www.pennbti.com/" rel="noopener noreferrer" target="_blank" onClick={closeMenu}>PennBTI</StyledLink>
               </DropdownContent>
             </>
           ) : (
@@ -359,11 +437,11 @@ const Navbar = () => {
         </Dropdown>
         
         <NavButton>
-          <StyledLink to="/articles">Articles</StyledLink>
+          <StyledLink to="/articles" onClick={closeMenu}>Articles</StyledLink>
         </NavButton>
         
         <NavButton>
-          <NavbarLink href="/about">About</NavbarLink>
+          <NavbarLink href="/about" onClick={closeMenu}>About</NavbarLink>
         </NavButton>
       </NavbarRight>
     </NavbarContainer>

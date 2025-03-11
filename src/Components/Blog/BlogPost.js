@@ -16,7 +16,11 @@ const BlogPostContainer = styled.div`
   padding: 4rem 2rem;
   
   @media (max-width: 768px) {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 `;
 
@@ -36,6 +40,11 @@ const BackButton = styled(Link)`
   svg {
     margin-right: 0.5rem;
   }
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
 `;
 
 const BlogHeader = styled.header`
@@ -48,6 +57,11 @@ const BlogTitle = styled.h1`
   margin-bottom: 1.5rem;
   line-height: 1.2;
   font-weight: 700;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
 `;
 
 const BlogMeta = styled.div`
@@ -82,6 +96,15 @@ const HeroImage = styled.img`
   border-radius: 12px;
   margin-bottom: 3rem;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    max-height: 300px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 `;
 
 const BlogContent = styled.div`
@@ -192,6 +215,8 @@ const ShareSection = styled.div`
   align-items: center;
   
   @media (max-width: 768px) {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
@@ -213,6 +238,12 @@ const ShareLabel = styled.span`
 const ShareButtons = styled.div`
   display: flex;
   gap: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0.75rem;
+  }
 `;
 
 const ShareButton = styled.button`
@@ -227,6 +258,14 @@ const ShareButton = styled.button`
   
   &:hover {
     background-color: ${NAVY_LIGHT};
+  }
+  
+  @media (max-width: 768px) {
+    flex: 1;
+    min-width: calc(50% - 0.75rem);
+    padding: 0.6rem 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
   }
 `;
 
@@ -299,7 +338,12 @@ const BlogPost = () => {
   if (loading) {
     return (
       <BlogPostContainer>
-        <p>Loading...</p>
+        <BackButton to="/articles">
+          <FontAwesomeIcon icon={faArrowLeft} /> Back to Articles
+        </BackButton>
+        <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+          <p>Loading article...</p>
+        </div>
       </BlogPostContainer>
     );
   }
@@ -307,10 +351,12 @@ const BlogPost = () => {
   if (error) {
     return (
       <BlogPostContainer>
-        <p>{error}</p>
         <BackButton to="/articles">
           <FontAwesomeIcon icon={faArrowLeft} /> Back to Articles
         </BackButton>
+        <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+          <p>{error}</p>
+        </div>
       </BlogPostContainer>
     );
   }
