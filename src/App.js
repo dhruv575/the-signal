@@ -10,6 +10,7 @@ import Confessions from './Pages/Confessions';
 import Articles from './Pages/Articles';
 import ArticleDetail from './Pages/ArticleDetail';
 import BlogInstructions from './Pages/BlogInstructions';
+import PennThroughMyEyes from './Pages/PennThroughMyEyes';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/antiresume" element={<AntiResume />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/throughmyeyes" element={<PennThroughMyEyes />} />
         <Route path="/about" element={<About />} />
         <Route path="/confessions" element={<Confessions />} />
         <Route path="/articles" element={<Articles />} />

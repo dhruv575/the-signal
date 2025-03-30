@@ -405,6 +405,7 @@ const Navbar = () => {
               <DropdownContent isOpen={isDropdownOpen}>
                 <StyledLink to="/antiresume" onClick={closeMenu}>Anti Resume</StyledLink>
                 <StyledLink to="/confessions" onClick={closeMenu}>Confessions</StyledLink>
+                <StyledLink to="/throughmyeyes">Penn Through My Eyes</StyledLink>
                 <StyledLink to="https://swithoutm.com/" rel="noopener noreferrer" target="_blank" onClick={closeMenu}>Squirrels without Morality</StyledLink>
                 <StyledLink to="https://www.pennbti.com/" rel="noopener noreferrer" target="_blank" onClick={closeMenu}>PennBTI</StyledLink>
               </DropdownContent>
@@ -429,6 +430,7 @@ const Navbar = () => {
               >
                 <StyledLink to="/antiresume">Anti Resume</StyledLink>
                 <StyledLink to="/confessions">Confessions</StyledLink>
+                <StyledLink to="/throughmyeyes">Penn Through My Eyes</StyledLink>
                 <StyledLink to="https://swithoutm.com/" rel="noopener noreferrer" target="_blank">Squirrels without Morality</StyledLink>
                 <StyledLink to="https://www.pennbti.com/" rel="noopener noreferrer" target="_blank">PennBTI</StyledLink>
               </DropdownContent>
