@@ -42,6 +42,13 @@
         "description": "A reworked version of the Myers-Briggs Type Indicator, PennBTI is a tool that allows Penn students to get their personality type and match with other students who are similar. Students can create and join any room, each of which is another chance to meet someone new!"
     },
     {
+        "background_image": "https://i.ibb.co/F4FBrPBB/hop.jpg",
+        "title": "Humans of Penn",
+        "subtitle": "Highlighting the people",
+        "link": "https://issuu.com/thesignalpenn",
+        "description": "Humans of Penn is a collection of stories from Penn students, faculty, and staff. It is a project that aims to highlight the diversity of the Penn community and to showcase the unique experiences of Penn students."
+    },
+    {
         "background_image": "https://i.ibb.co/4S7zrfL/hotones-1.png",
         "title": "Hot Ones",
         "subtitle": "Trying hot wings and telling stories",
