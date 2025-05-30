@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import data from '../../Data/antires_normal.json'; // Import the JSON file
+import profData from '../../Data/antires_prof.json'; // Import the professor JSON file
 import PersonCard from './PersonCard'; // Import the PersonCard component
 
 // Define color constants to match Navbar
@@ -97,18 +98,29 @@ const EmptyStateText = styled.p`
 const DataDisplay = () => {
   const [activeYear, setActiveYear] = useState('All');
   
-  // Get unique years from data
-  const years = ['All', ...new Set(data.map(person => person.class).filter(Boolean))].sort((a, b) => {
-    if (a === 'All') return -1;
-    if (b === 'All') return 1;
-    return b - a; // Sort years in descending order
-  });
+  // Merge student and professor data
+  const mergedData = [
+    ...data,
+    ...profData.map(prof => ({ ...prof, type: 'professor' }))
+  ];
+
+  // Get unique years from student data only (professors don't have 'class')
+  const years = [
+    'All',
+    'Professors',
+    ...Array.from(new Set(data.map(person => person.class).filter(Boolean))).sort((a, b) => b - a)
+  ];
   
   // Filter data based on active year
-  const filteredData = activeYear === 'All'
-    ? data.filter(person => person.name && person.profilePicUrl)
-    : data.filter(person => person.name && person.profilePicUrl && person.class === activeYear);
-  
+  let filteredData;
+  if (activeYear === 'All') {
+    filteredData = mergedData.filter(person => person.name && person.profilePicUrl);
+  } else if (activeYear === 'Professors') {
+    filteredData = mergedData.filter(person => person.type === 'professor' && person.name && person.profilePicUrl);
+  } else {
+    filteredData = mergedData.filter(person => person.class === activeYear && person.name && person.profilePicUrl && person.type !== 'professor');
+  }
+
   return (
     <DataDisplayContainer>
       <SectionContainer>
@@ -121,7 +133,7 @@ const DataDisplay = () => {
               active={activeYear === year}
               onClick={() => setActiveYear(year)}
             >
-              {year === 'All' ? 'All Classes' : `Class of ${year}`}
+              {year === 'All' ? 'All Classes' : year === 'Professors' ? 'Professors' : `Class of ${year}`}
             </FilterButton>
           ))}
         </FilterContainer>

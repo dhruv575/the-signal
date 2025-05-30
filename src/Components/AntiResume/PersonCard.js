@@ -118,7 +118,14 @@ const PersonCard = ({ person }) => {
         </ProfileImageContainer>
         <CardContent>
           <PersonName>{person.name}</PersonName>
-          {person.class && <PersonClass>Class of {person.class}</PersonClass>}
+          {person.type === 'professor' ? (
+            <PersonClass>
+              {person.department && <span>{person.department}</span>}
+              {person.position && <span>{person.department ? ' • ' : ''}{person.position}</span>}
+            </PersonClass>
+          ) : (
+            person.class && <PersonClass>Class of {person.class}</PersonClass>
+          )}
           
           <TagsContainer>
             {getTags().map((tag, index) => (
