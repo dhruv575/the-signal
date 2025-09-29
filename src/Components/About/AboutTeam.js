@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import teamData from '../../Data/team.json';
+import { teamService } from '../../services/api';
+import '../../utils/testApi'; // Import to make testApi() available in console
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -167,9 +168,111 @@ const SocialLink = styled.a`
   }
 `;
 
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  font-size: 1.2rem;
+  color: ${NAVY};
+`;
+
+const ErrorContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  text-align: center;
+`;
+
+const ErrorMessage = styled.div`
+  font-size: 1.1rem;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+`;
+
+const RetryButton = styled.button`
+  background-color: ${NAVY};
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: #083055;
+  }
+  
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+`;
+
 const positions = ["Co-director", "Project Lead", "Member", "Alumni"];
 
 const AboutTeam = () => {
+  const [teamData, setTeamData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [retrying, setRetrying] = useState(false);
+
+  const fetchTeamData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      console.log('🔍 AboutTeam: Starting team data fetch...');
+      const data = await teamService.getTeamData();
+      setTeamData(data);
+      console.log('🎉 AboutTeam: Team data successfully loaded and set to state');
+    } catch (err) {
+      console.error('❌ AboutTeam: Error fetching team data:', err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+      setRetrying(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchTeamData();
+  }, []);
+
+  const handleRetry = async () => {
+    setRetrying(true);
+    await fetchTeamData();
+  };
+
+  if (loading) {
+    return (
+      <TeamContainer>
+        <SectionTitle>Our Team</SectionTitle>
+        <LoadingContainer>
+          Loading team data...
+        </LoadingContainer>
+      </TeamContainer>
+    );
+  }
+
+  if (error) {
+    return (
+      <TeamContainer>
+        <SectionTitle>Our Team</SectionTitle>
+        <ErrorContainer>
+          <ErrorMessage>
+            Failed to load team data: {error}
+          </ErrorMessage>
+          <RetryButton onClick={handleRetry} disabled={retrying}>
+            {retrying ? 'Retrying...' : 'Try Again'}
+          </RetryButton>
+        </ErrorContainer>
+      </TeamContainer>
+    );
+  }
+
   const groupedData = positions.map((position) => ({
     position,
     members: teamData.filter((member) => member.Position === position),
@@ -188,7 +291,7 @@ const AboutTeam = () => {
             
             <MembersGrid>
               {group.members.map((member, index) => (
-                <MemberCard key={index}>
+                <MemberCard key={member.id || member.Name || index}>
                   <ImageContainer>
                     <MemberImage src={member.Image} alt={member.Name} loading="lazy" />
                   </ImageContainer>
