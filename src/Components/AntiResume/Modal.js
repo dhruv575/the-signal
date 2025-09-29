@@ -378,6 +378,12 @@ const Modal = ({ person, onClose }) => {
 
           <ModalTextColumn>
             <ModalName>{name}</ModalName>
+            {person.type === 'professor' && (person.department || person.position) && (
+              <div style={{ fontSize: '1.1rem', color: '#444', margin: '0.5rem 0 1rem 0', fontWeight: 500 }}>
+                {person.department && <span>{person.department}</span>}
+                {person.position && <span>{person.department ? ' • ' : ''}{person.position}</span>}
+              </div>
+            )}
             <Divider />
             <ShortBio>{shortBio || 'No bio available'}</ShortBio>
           </ModalTextColumn>
